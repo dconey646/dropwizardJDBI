@@ -1,6 +1,7 @@
 package com.loginExample.resource;
 
 import com.codahale.metrics.annotation.Timed;
+import com.loginExample.Views.DeleteUserView;
 import com.loginExample.Views.HomePageView;
 import com.loginExample.Views.LoginPageView;
 import com.loginExample.dao.PersonDAO;
@@ -48,8 +49,8 @@ public class LoginExampleResource {
     @Path("delete-user")
     @Timed
     @Produces(MediaType.TEXT_HTML)
-    public void deleteUser(){
-
+    public View deleteUserView(){
+        return new DeleteUserView();
     }
 
     @GET
@@ -57,7 +58,6 @@ public class LoginExampleResource {
     @Timed
     @Produces(MediaType.TEXT_HTML)
     public void createPerson(){
-
     }
 
     @GET
@@ -65,7 +65,6 @@ public class LoginExampleResource {
     @Timed
     @Produces(MediaType.TEXT_HTML)
     public void viewAllPeople(){
-
     }
 
     @GET
@@ -73,6 +72,5 @@ public class LoginExampleResource {
     @Timed
     @Produces(MediaType.TEXT_HTML)
     public void findById(){
-
     }
 }
