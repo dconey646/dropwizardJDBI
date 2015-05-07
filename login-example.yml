@@ -1,0 +1,30 @@
+template: Hello, %s!
+defaultName: Stranger
+
+database:
+  #the name of the JDBC driver
+  driverClass: org.postgresql.Driver
+
+  #username for the database
+  user: postgres
+
+  #password for the user
+  password: password1
+
+  url: jdbc:postgresql://localhost:5432/testdb
+
+  maxWaitForConnection: 1s
+
+  validationQuery: "/* Service Health Check */ SELECT 1"
+
+  validationQueryTimeout: 3s
+
+  minSize: 8
+
+  maxSize: 12
+
+  checkConnectionWhileIdle: false
+
+  evictionInterval: 10s
+
+  minIdleTime: 1 minute

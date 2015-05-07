@@ -1,0 +1,5 @@
+com/loginExample/configuration/LoginExampleConfiguration.class
+com/loginExample/LoginExampleApplication.class
+com/loginExample/healthcheck/TemplateHealthcheck.class
+com/loginExample/resource/LoginExampleResource.class
+com/loginExample/representation/Message.class
