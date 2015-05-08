@@ -1,0 +1,13 @@
+logs
+project/project/target
+project/target
+target
+.history
+.idea_modules
+.idea
+.idea/*
+!.idea/runConfigurations
+.idea_modules
+.classpath
+/.settings
+scripts/build/.idea
