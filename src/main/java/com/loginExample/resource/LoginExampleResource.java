@@ -1,10 +1,10 @@
 package com.loginExample.resource;
 
 import com.codahale.metrics.annotation.Timed;
-import com.loginExample.Views.DeleteUserView;
-import com.loginExample.Views.HomePageView;
-import com.loginExample.Views.LoginPageView;
+import com.loginExample.Views.*;
+import com.loginExample.authentication.User;
 import com.loginExample.dao.PersonDAO;
+import io.dropwizard.auth.Auth;
 import io.dropwizard.views.View;
 
 import javax.ws.rs.*;
@@ -34,43 +34,46 @@ public class LoginExampleResource {
     public View login(@FormParam("username") String username,
                       @FormParam("password") String password) {
         if(username == null || username.isEmpty() || password == null || password.isEmpty()){
-            return new LoginPageView(false);
+            return null;
         } else {
             int personId = personDAO.checkDetails(username, password);
             if(personId <= 0) {
-                return new LoginPageView(false);
-            } else {
                 return new HomePageView();
+            } else {
+                return new LoginPageView(false);
             }
         }
     }
 
     @GET
-    @Path("delete-user")
+    @Path("delete")
     @Timed
     @Produces(MediaType.TEXT_HTML)
-    public View deleteUserView(){
+    public View deleteUserView(@Auth User user){
         return new DeleteUserView();
     }
 
     @GET
-    @Path("create-person")
+    @Path("create")
     @Timed
     @Produces(MediaType.TEXT_HTML)
-    public void createPerson(){
+    public View createPerson(@Auth User user){
+        return new CreatePersonView();
     }
 
     @GET
     @Path("view-all")
     @Timed
     @Produces(MediaType.TEXT_HTML)
-    public void viewAllPeople(){
+    public View viewAllPeople(@Auth User user){
+        return new ViewAllPeopleView();
     }
 
     @GET
     @Path("find-person-by-id")
     @Timed
     @Produces(MediaType.TEXT_HTML)
-    public void findById(){
+    public View findById(@Auth User user){
+        return new FindByIdView();
     }
 }

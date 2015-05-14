@@ -1,6 +1,16 @@
 template: Hello, %s!
 defaultName: Stranger
 
+server:
+  applicationConnectors:
+  - type: http
+    port: 8080
+  - type: https
+    port: 8443
+    keyStorePath: dropwizardtest.keystore
+    keyStorePassword: dropwizardtest
+    validateCerts: false
+
 database:
   #the name of the JDBC driver
   driverClass: org.postgresql.Driver

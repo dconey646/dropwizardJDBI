@@ -1,7 +1,10 @@
 package com.loginExample.Views;
 
-/**
- * Created by damienc on 07/05/15.
- */
-public class ViewAllPeopleView {
+import io.dropwizard.views.View;
+
+public class ViewAllPeopleView extends View {
+
+    public ViewAllPeopleView() {
+        super("/templates/partials/loginPage.ftl");
+    }
 }
